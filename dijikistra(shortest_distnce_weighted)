@@ -109,6 +109,8 @@ void bfs(ll value)
       q.pop();
       ll weight=p.first;
       ll value=p.second;
+      if(visited[value]) continue;
+      visited[value]=1;
       for(auto child:v[value]) // ahiya child e pair hase kai to ke v name na vector ma nakhi te....
       {
          if(dis[child.second] > dis[value] + child.first)
