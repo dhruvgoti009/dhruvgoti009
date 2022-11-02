@@ -1,0 +1,63 @@
+
+// Author : Dhruv Goti.... 
+// From   : Daiict.....
+
+
+
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+#define ll long long int
+#define all(a) (a).begin(),(a).end()
+#define endl '\n'
+
+void TOS()
+{
+    ios::sync_with_stdio(0); cin.tie(0); cout.tie(0); 
+    #ifndef ONLINE_JUDGE 
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+    #endif
+}
+vector<ll> v[100010];
+ll visited[100010];
+
+void dfs(ll value)
+{
+   visited[value]=1;
+   for(auto child:v[value])
+   {
+      if(!visited[child]) dfs(child);
+   }
+}
+
+void solve()
+{
+   ll n,m;
+   cin >> n >> m;
+
+   for(ll i=0;i<m;i++)
+   {
+      ll a,b;
+      cin >> a >> b;
+      v[a].push_back(b);
+      v[b].push_back(a);
+   }
+
+   dfs(1);
+
+
+
+}
+
+int main()
+{
+    TOS();
+    ll qq_itr=1;
+    // cin >> qq_itr;
+    while (qq_itr--)
+        solve();
+}  
